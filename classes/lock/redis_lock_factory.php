@@ -103,7 +103,7 @@ class redis_lock_factory implements lock_factory {
             // Logging enabled only for CLI, web gets damaged by lock logs.
             $logging = (CLI_SCRIPT && debugging() && !PHPUNIT_TEST);
             if (isset($CFG->local_redislock_logging)) {
-                $logging = $this->logging && ((bool) $CFG->local_redislock_logging);
+                $logging = $logging && ((bool) $CFG->local_redislock_logging);
             }
         }
         $this->redis   = $redis;
